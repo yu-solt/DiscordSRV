@@ -1,9 +1,9 @@
 # Discord -> Minecraft メッセージ
 #
-# DiscordToMinecraftChatMessageFormat: DiscordからMinecraftにメッセージを送る時に適用されるフォーマット
-# DiscordToMinecraftChatMessageFormatNoRole: ロールを持たないユーザーがDiscordからMinecraftにメッセージを送る時に適用されるフォーマット
+# DiscordToMinecraftChatMessageFormat: DiscordからMinecraftにメッセージを送る時に適用されるフォーマットです。
+# DiscordToMinecraftChatMessageFormatNoRole: ロールを持たないユーザーがDiscordからMinecraftにメッセージを送る時に適用されるフォーマットです。
 #
-# チャンネルごとに異なるフォーマットを指定できます。 「mychannel」という名前のチャンネルがあるとします。
+# チャンネルごとに異なるフォーマットを指定できます。「mychannel」という名前のチャンネルがあるとします。
 # グローバルに定義されたもの以外のフォーマットにしたい場合は、次のプロパティを追加できます。
 #
 # DiscordToMinecraftChatMessageFormat_mychannel: "[&bDiscord From MyChannel &r| %toprolecolor%%toprole%&r] %name% » %message%"
@@ -81,8 +81,8 @@ DiscordToMinecraftMessageReplyFormat: " (%name% への返信)"
 MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname% » %message%"
 MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname% » %message%"
 
-# チャットチャンネルのプラグインメッセージ
-# これは、サポートされているチャットチャンネルプラグインがフックされている場合にのみ使用される特別なメッセージです。
+# チャットプラグインのチャンネルメッセージ
+# これは、サポートされているチャットプラグインのチャンネルがフックされている場合にのみ使用される特別なメッセージです。
 # ゲーム内のメッセージに、チャンネル固有の情報を付与することができます。
 #
 # 使用できるキーワード:
@@ -103,7 +103,7 @@ ChatChannelHookMessageFormat: "%channelcolor%[%channelnickname%]&r %message%"
 # DynmapChatFormat: Dynmapに送信されるメッセージのメッセージ部分のフォーマット
 #
 # 使用できるキーワード:
-# Discordと同じ-> Minecraftプレースホルダー
+# Discord -> Minecraftプレースホルダー
 #
 # DynmapDiscordFormat: Discordに送られるDynmapメッセージのフォーマット
 #
@@ -130,8 +130,8 @@ DynmapDiscordFormat: "[Dynmap] %name% » %message%"
 #              例: Sun 15:30:45
 # PlaceholderAPIプレースホルダもサポートされています
 #
-# DiscordConsoleChannelPrefix: 行の前に追加するプレフィックス。
-# DiscordConsoleChannelSuffix: 行の後に追加するサフィックス。
+# DiscordConsoleChannelPrefix: 行の前に追加する接頭辞
+# DiscordConsoleChannelSuffix: 行の後に追加する接尾辞
 #
 DiscordConsoleChannelTimestampFormat: "EEE HH:mm:ss"
 DiscordConsoleChannelPrefix: "[{date} {level}{name}] "
@@ -139,19 +139,19 @@ DiscordConsoleChannelSuffix: ""
 DiscordConsoleChannelPadding: 0
 
 # Discordチャットチャンネル !c コマンドエラーメッセージ
-# コマンド自体を実行する際のエラーではなく、プレーヤーがコマンドを実行するためのアクセス許可でエラーが発生した場合に使用されます
-# これはPMとしてユーザーに送信されます
+# コマンド自体を実行する際のエラーではなく、プレーヤーがコマンドを実行するためのアクセス許可でエラーが発生した場合に使用されます。
+# これはDMとしてユーザーに送信されます。
 #
 # 使用できるキーワード:
 # %user%:  コマンドを実行しようとしたユーザーの名前
 #           例: Notch
-# %error%: エラーの理由
+# %error%: エラー理由
 #           例: no permission
 #
 DiscordChatChannelConsoleCommandNotifyErrorsFormat: "**%user%** さんが実行したコマンドは、エラーになりました: %error%"
 
 # Discordチャットチャンネル playerlist コマンド
-# 誰かがチャットチャンネルでplayerlistコマンドを実行したときに使用されるメッセージ
+# 誰かがチャットチャンネルでplayerlistコマンドを実行したときに使用されるメッセージです。
 #
 # DiscordChatChannelListCommandFormatOnlinePlayers: リストの先頭に表示されるメッセージ
 # DiscordChatChannelListCommandFormatNoOnlinePlayers: オンラインのプレイヤーが誰もいないときに使用されるメッセージ
@@ -166,17 +166,17 @@ DiscordChatChannelConsoleCommandNotifyErrorsFormat: "**%user%** さんが実行�
 # DiscordChatChannelListCommandAllPlayersSeparator: プレーヤー間で使用されるセパレータ
 #
 DiscordChatChannelListCommandFormatOnlinePlayers: "**オンラインプレイヤー数 (%playercount%):**"
-DiscordChatChannelListCommandFormatNoOnlinePlayers: "**オンラインのプレイヤーはいません**"
+DiscordChatChannelListCommandFormatNoOnlinePlayers: "**オンラインのプレイヤーはいません。**"
 DiscordChatChannelListCommandPlayerFormat: "%displayname%"
-DiscordChatChannelListCommandAllPlayersSeparator: ", "
+DiscordChatChannelListCommandAllPlayersSeparator: "、"
 
 # Minecraft -> Discord 通知メッセージ
 #
 #
-# 情報を埋め込む:
-# Color:      16進数の色コードを受け入れます (例 "#ffffff") またはRGB整数 (例 0)
-# Fields:     フォーマットは "題名;値;inline" (例 "誰が参加しましたか？;%displayname%;true") または"Blank"で空白のフィールドを追加します
-# Timestamp:  メッセージが送信された時間を使用するか、特定の時間のエポックタイムスタンプを使用するには、trueに設定します (https://www.epochconverter.com/)
+# 埋め込み情報:
+# Color:      16進数の色コード (例 "#ffffff") またはRGB整数 (例 0)
+# Fields:     フォーマット "題名;値;inline" (例 "誰が参加しましたか？;%displayname%;true") または"Blank"で空白のフィールドを追加
+# Timestamp:  メッセージが送信された時間または、特定の時間のエポックタイムスタンプ (https://www.epochconverter.com/)
 #
 # PlayerJoin/PlayerFirstJoin/PlayerLeave/PlayerDeath/PlayerAchievementで使用可能なプレースホルダー:
 # %displayname%:         プレイヤーの表示名
@@ -187,10 +187,10 @@ DiscordChatChannelListCommandAllPlayersSeparator: ", "
 # %embedavatarurl%:      ユーザーのアバター
 # %botavatarurl%:        ボットのアバター
 # %botname%:             ボットの名前
-# PlaceholderAPIプレースホルダもサポートされています
+# PlaceholderAPIプレースホルダもサポートされています。
 #
 # PlayerJoinで使用可能なプレースホルダー:
-# %message%:        ゲーム内で見られるメッセージに参加
+# %message%:        Minecraftの標準参加メッセージ
 #
 MinecraftPlayerJoinMessage:
   Enabled: true
@@ -219,7 +219,7 @@ MinecraftPlayerJoinMessage:
     Timestamp: false
 #
 # PlayerFirstJoinで使用可能なプレースホルダー:
-# %message%:        ゲーム内で見られるメッセージに参加
+# %message%:        Minecraftの標準参加メッセージ
 #
 MinecraftPlayerFirstJoinMessage:
   Enabled: true
@@ -233,7 +233,7 @@ MinecraftPlayerFirstJoinMessage:
     Color: "#ffd700"
     Author:
       ImageUrl: "%embedavatarurl%"
-      Name: "%username% さんがサーバーに初参加です"
+      Name: "%username% さんがサーバーに初参加です。"
       Url: ""
     ThumbnailUrl: ""
     Title:
@@ -248,7 +248,7 @@ MinecraftPlayerFirstJoinMessage:
     Timestamp: false
 #
 # PlayerLeaveで使用可能なプレースホルダー:
-# %message%:        ゲーム内のメッセージを残す
+# %message%:        Minecraftの標準退出メッセージ
 #
 MinecraftPlayerLeaveMessage:
   Enabled: true
@@ -262,7 +262,7 @@ MinecraftPlayerLeaveMessage:
     Color: "#ff0000"
     Author:
       ImageUrl: "%embedavatarurl%"
-      Name: "%username% さんがサーバーから退出しました"
+      Name: "%username% さんがサーバーから退出しました。"
       Url: ""
     ThumbnailUrl: ""
     Title:
@@ -322,7 +322,7 @@ MinecraftPlayerAchievementMessage:
     Color: "#ffd700"
     Author:
       ImageUrl: "%embedavatarurl%"
-      Name: "%username% は進捗 %achievement% を達成した！"
+      Name: "%username% が進捗 %achievement% を達成しました！"
       Url: ""
     ThumbnailUrl: ""
     Title:
@@ -337,46 +337,46 @@ MinecraftPlayerAchievementMessage:
     Timestamp: false
 
 # チャンネルトピックメッセージ
-# チャットチャンネルやコンソールチャンネルのトピックをサーバー情報で自動的に更新することに関連する設定です
+# チャットチャンネルやコンソールチャンネルのトピックをサーバー情報で自動的に更新することに関連する設定です。
 #
-# ChannelTopicUpdater______ChannelTopicFormat: チャンネルのトピックにX秒ごとに設定するメッセージ
-# ChannelTopicUpdater______ChannelTopicAtShutdownFormat: サーバーがシャットダウンしたときにチャネルのトピックに設定するメッセージ
+# ChannelTopicUpdater______ChannelTopicFormat: チャンネルのトピックにX秒ごとに設定するメッセージです。
+# ChannelTopicUpdater______ChannelTopicAtShutdownFormat: サーバーがシャットダウンしたときにチャネルのトピックに設定するメッセージです。
 #
 # 使用できるキーワード:
 # %playercount%:   現在のプレイヤー数
 # %playermax%:     最大プレイヤー数
 # %date%:          現在の日時
-# %totalplayers%:  メインワールドに接続したプレイヤーの総数
+# %totalplayers%:  ワールドに接続したプレイヤーの総数
 # %uptimemins%:    DiscordSRVが起動してから経過した時間（分）
 # %uptimehours%:   DiscordSRVが起動してから経過した時間（時）
-# %motd%:          サーバーのmotd
-# %serverversion%: サーバーのバージョン（例: Spigot-1.9）
-# %freememory%:    JVMの空きメモリー量（MB）
-# %usedmemory%:    JVMの使用メモリー量（MB）
-# %totalmemory%:   JVMの総メモリー量（MB）
-# %maxmemory%:     JVMの最大メモリー量（MB）
-# %freememorygb%:  JVMの空きメモリー量（GB）
-# %usedmemorygb%:  JVMの使用メモリー量（GB）
-# %totalmemorygb%: JVMの総メモリー量（GB）
-# %maxmemorygb%:   JVMの最大メモリー量（GB）
+# %motd%:          サーバーのMOTD
+# %serverversion%: サーバーのバージョン（例: Paper 1.20.4）
+# %freememory%:    JVMの空きメモリ（MB）
+# %usedmemory%:    JVMの使用メモリ（MB）
+# %totalmemory%:   JVMの総メモリ（MB）
+# %maxmemory%:     JVMの最大メモリ（MB）
+# %freememorygb%:  JVMの空きメモリ（GB）
+# %usedmemorygb%:  JVMの使用メモリ（GB）
+# %totalmemorygb%: JVMの総メモリ（GB）
+# %maxmemorygb%:   JVMの最大メモリ（GB）
 # %tps%:           サーバーの平均TPS
 # PlaceholderAPIプレースホルダもサポートされています
 #
 ChannelTopicUpdaterChatChannelTopicFormat: "オンラインプレイヤー数 %playercount%/%playermax% | 接続したプレイヤーの総数 %totalplayers% | サーバー起動時間 %uptimemins% 分 | 最終更新 %date%"
-ChannelTopicUpdaterConsoleChannelTopicFormat: "TPS: %tps% | メモリー: %usedmemorygb%GB used/%freememorygb%GB free/%maxmemorygb%GB max | %serverversion%"
+ChannelTopicUpdaterConsoleChannelTopicFormat: "TPS: %tps% | メモリ: %usedmemorygb%GB used/%freememorygb%GB free/%maxmemorygb%GB max | %serverversion%"
 # AtServerShutdownFormatsは%totalplayers%、%serverversion%、%date%のみをサポートしています。
-ChannelTopicUpdaterChatChannelTopicAtServerShutdownFormat: "サーバーはオフラインです | 接続したプレイヤーの総数 %totalplayers%"
-ChannelTopicUpdaterConsoleChannelTopicAtServerShutdownFormat: "サーバーはオフラインです | %serverversion%"
+ChannelTopicUpdaterChatChannelTopicAtServerShutdownFormat: "サーバーはオフラインです。 | 接続したプレイヤーの総数 %totalplayers%"
+ChannelTopicUpdaterConsoleChannelTopicAtServerShutdownFormat: "サーバーはオフラインです。| %serverversion%"
 
 # Discord コマンドメッセージ
 # プレイヤーが "/discord" コマンドを実行したときに送られるメッセージです
 # プレイヤーのために、参加すべきDiscordのURLや、コマンドのヘルプなどを表示してあげてください
 # ユーザーがDiscordサーバーに参加するために必要な招待リンクのプレースホルダーとして{INVITE}を使用し、config.ymlで構成されたDiscordInviteLinkを使用します
 #
-DiscordCommandFormat: "&bDiscordチャンネルに参加してください。{INVITE}&b. コマンドのヘルプを見るには、\"/discord ?\"を実行してください。"
+DiscordCommandFormat: "&bDiscordの招待リンク: {INVITE}&b. コマンドのヘルプを見るには、\"/discord ?\"を実行してください。"
 
 # 許可メッセージ形式なし
-NoPermissionMessage: "&cあなたはこのコマンドを実行する権限がありません。"
+NoPermissionMessage: "&cこのコマンドを実行する権限がありません。"
 
 # 不明なコマンドメッセージ
 UnknownCommandMessage: "&b指定されたコマンドは存在しません！"
@@ -385,8 +385,8 @@ UnknownCommandMessage: "&b指定されたコマンドは存在しません！"
 # DiscordChatChannelServerStartupMessage: サーバー起動時に送信されるメッセージ。無効にするには空欄にしてください
 # DiscordChatChannelServerShutdownMessage: サーバー停止時に送信されるメッセージ。無効にするには空欄にしてください
 #
-DiscordChatChannelServerStartupMessage: ":white_check_mark: **サーバーが起動しました**"
-DiscordChatChannelServerShutdownMessage: ":octagonal_sign: **サーバーが停止しました**"
+DiscordChatChannelServerStartupMessage: ":white_check_mark: **サーバーが起動しました。**"
+DiscordChatChannelServerShutdownMessage: ":octagonal_sign: **サーバーが停止しました。**"
 
 # サーバーウォッチドッグメッセージ
 #
@@ -427,19 +427,19 @@ ServerWatchdogMessage: "<t:%timestamp%:R> %guildowner%、サーバーが%timeout
 # MinecraftNobodyFound:         %target%:       結果が見つからない原因となった入力
 #
 # Discord
-UnknownCode: "そのようなコードは知りません。もう一度やり直してください。"
-InvalidCode: "それがあなたのコードで正しいですか？リンクコードは4文字の数字です。"
-DiscordAccountLinked: "あなたのDiscordアカウントは、%name% (%uuid%)とリンクしました"
-DiscordAccountAlreadyLinked: "あなたは既に %username% にリンクされています (%uuid%)"
-DiscordLinkedAccountRequired: "ゲームチャットに以下のメッセージを表示しようとしましたが、このサーバーではあなたのMinecraftアカウントをDiscordアカウントにリンクさせる必要があります。リンクさせるには、ゲーム内で `/discord link` を実行してください。 \n```%message%```"
-DiscordLinkedAccountCheckFailed: "アカウントがリンクされているかどうかを確認できません。しばらくしてからもう一度お試しください"
+UnknownCode: "不明なコードです。連携コードをお確かめの上、もう一度やり直してください。"
+InvalidCode: "不明なコードです。連携コードは4文字の半角数字です。"
+DiscordAccountLinked: "あなたのDiscordアカウントは、%name% (%uuid%)と連携しました。"
+DiscordAccountAlreadyLinked: "あなたは既に %username% に連携されています。 (%uuid%)"
+DiscordLinkedAccountRequired: "Minecraftチャットに以下のメッセージを表示しようとしましたが、このサーバーではあなたのMinecraftアカウントをDiscordアカウントに連携する必要があります。連携するには、ゲーム内で `/discord link` を実行してください。 \n```%message%```"
+DiscordLinkedAccountCheckFailed: "アカウントが連携されているかどうかを確認できません。しばらくしてからもう一度お試しください。"
 # Minecraft
-CodeGenerated: "あなたのリンクコードは%code%です。あなたのアカウントとリンクするために、このコードだけを含むメッセージをDiscord上のボット(%botname%)にPMを送ってください。"
+CodeGenerated: "あなたの連携コードは%code%です。あなたのアカウントと連携するために、このコードだけを含むメッセージを、Discord上のBOT(%botname%)にDMで送信してください。"
 ClickToCopyCode: "クリックしてコピー"
-MinecraftAccountLinked: "&bあなたのUUIDは、Discordユーザー%username% (%id%)とリンクしました"
-MinecraftAccountAlreadyLinked: "&bあなたのMinecraftアカウントはすでにDiscordアカウントに関連付けられています。 もしあなたがパーミッションを持っていれば、/discord unlinkを実行して2つのリンクを解除することができます。"
-LinkedCommandSuccess: "&bあなたのMinecraftアカウントは%name%にリンクされました。"
-UnlinkCommandSuccess: "&bあなたのMinecraftアカウントは、%name%とのリンクが解除されました。"
-MinecraftNoLinkedAccount: "&cあなたのMinecraftアカウントはDiscordアカウントにリンクされていません。"
-LinkingError: "&c現在、内部エラーのためにアカウントをリンクできません。サーバー管理チームに連絡してください。"
-MinecraftNobodyFound: "&c\"%target%\" と一致するものを Discord-ID/Discord-Name/Minecraft-Name/Minecraft-UUID から探しましたが、何も見つかりませんでした。"
+MinecraftAccountLinked: "&bあなたのUUIDは、Discordユーザー%username% (%id%)と連携しました。"
+MinecraftAccountAlreadyLinked: "&bあなたのMinecraftアカウントは既にDiscordアカウントに連携されています。権限を持っている場合、/discord unlinkを実行して連携を解除することができます。"
+LinkedCommandSuccess: "&bあなたのMinecraftアカウントは%name%に連携されました。"
+UnlinkCommandSuccess: "&bあなたのMinecraftアカウントは、%name%との連携が解除されました。"
+MinecraftNoLinkedAccount: "&cあなたのMinecraftアカウントは、Discordアカウントに連携されていません。"
+LinkingError: "&c現在、内部エラーのためにアカウントを連携できません。サーバー管理者に連絡してください。"
+MinecraftNobodyFound: "&c\"%target%\" と一致するものを、DiscordのID、Discordのユーザー名、MCID、MinecraftのUUIDから探しましたが、何も見つかりませんでした。"
