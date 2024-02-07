@@ -1,11 +1,11 @@
 # DiscordSRV設定
-# 助けが必要ですか？ Discord https://discordsrv.com/discord にご参加ください！
+# サポートが必要ですか？ Discord https://discordsrv.com/discord にご参加ください！
 
-# ここは変更しないでください
+# ここは変更しないでください。
 ConfigVersion: ${version}
 
-# Bot token: Bot のトークンをここに設定してください。設定方法は、プラグインの導入手順を参照してください。
-# このオプションを変更した後、サーバーを再起動する必要があります
+# BotToken: Bot のトークンをここに設定してください。設定方法は、プラグインの導入手順を参照してください。
+# 「BotToken」は変更後、サーバーを再起動する必要があります。
 BotToken: "BOTTOKEN"
 
 # ゲームからDiscordへのチャンネルリンク
@@ -26,6 +26,7 @@ BotToken: "BOTTOKEN"
 # アカウントのリンク: link
 #
 # 各チャンネルの組の前半部分は Discord チャンネルの設定ではありません！
+# 「アカウントのリンク」を設定する場合、メッセージファイルも変更してください。
 # 編集したあとにこの設定を適用するには、「/discord reload」を実行してください
 Channels: {"global": "000000000000000000"}
 
@@ -78,7 +79,14 @@ Experiment_JdbcUsername: "username"
 Experiment_JdbcPassword: "password"
 
 # Webhook の配信
-Experiment_WebhookChatMessageDelivery: false
+# Experiment_WebhookChatMessageDelivery: Webhookでチャットを送信するか、しないか
+# Experiment_WebhookChatMessageUsernameFormat: Webhookでチャットを送信するときのユーザー名
+# Experiment_WebhookChatMessageFormat: Webhookでチャットを送信するときのメッセージ
+
+# ↓ Discordと連携されているユーザーにのみ適用されます。 ↓
+# Experiment_WebhookChatMessageUsernameFromDiscord: Webhookのユーザー名をDiscordのユーザー名にするか、しないか
+# Experiment_WebhookChatMessageAvatarFromDiscord: WebhookのアバターをDiscordのアバターにするか、しないか
+Experiment_webhookChatMessageDelivery: false
 Experiment_WebhookChatMessageUsernameFormat: "%displayname%"
 Experiment_WebhookChatMessageFormat: "%message%"
 Experiment_WebhookChatMessageUsernameFromDiscord: false
@@ -91,7 +99,7 @@ Experiment_WebhookChatMessageUsernameFilters: {}
 AvatarUrl: https://crafatar.com/avatars/{uuid-nodashes}.png?size={size}&overlay#{texture}
 
 # 書式の再変換
-# MinecraftとDiscord間の書式設定（太字、斜体、下線、取り消し線）を変換する
+# MinecraftとDiscord間の書式設定（太字、斜体、下線、取り消し線）を変換するか、しないか
 Experiment_MCDiscordReserializer_ToDiscord: false
 Experiment_MCDiscordReserializer_ToMinecraft: false
 Experiment_MCDiscordReserializer_InBroadcast: false
@@ -103,7 +111,7 @@ PrintGuildsAndChannels: true
 ForceTLSv12: true
 NoopHostnameVerifier: false
 MaximumAttemptsForSystemDNSBeforeUsingFallbackDNS: 3
-TimestampFormat: EEE, d. MMM yyyy HH:mm:ss z
+TimestampFormat: EEE, yyyy/MM/dd HH:mm:ss z
 DateFormat: yyyy-MM-dd
 # https://docs.discordsrv.com/config/#Timezone
 Timezone: default
