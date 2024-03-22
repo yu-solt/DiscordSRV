@@ -43,6 +43,7 @@ GroupRoleSynchronizationCycleCompletely: false
 
 # BAN同期
 # プレーヤーがMinecraftとDiscordをリンクしているときに、Minecraft上でプレイヤーがBANされると、DiscordサーバーでもBANすることができます。その逆もできます。
+# このBANは、“バニラのBAN”が使用されます。BANプラグインを使用している場合には、バニラのbanned-players.jsonをインポートする必要があります。
 #
 # BanSynchronizationDiscordToMinecraft: DiscordサーバーからBANされているユーザーをMinecraftサーバー上でもBANするかどうか
 # BanSynchronizationDiscordToMinecraftReason: MinecraftサーバーからプレーヤーをBANするときに、BAN理由として使用されるメッセージ
