@@ -27,13 +27,13 @@ BotToken: "BOTTOKEN"
 #
 # 各チャンネルの組の前半部分は Discord チャンネルの設定ではありません！
 # 「アカウントのリンク」を設定する場合、メッセージファイルも変更してください。
-# 編集したあとにこの設定を適用するには、「/discord reload」を実行してください
+# 編集したあとにこの設定を適用するには、「/discord reload」を実行してください。
 Channels: {"global": "000000000000000000"}
 
 # コンソールチャンネルのID（数値。チャンネル名ではありません)。コンソールチャンネルを無効にする場合は、空のままにしてください。
 DiscordConsoleChannelId: "000000000000000000"
 
-# /discord でプレイヤーに表示される招待リンク、およびアカウント連携を強制する際にまだ連携していないプレイヤーに表示される招待リンク
+# /discord でプレイヤーに表示される招待リンク、およびアカウント連携を強制する際にまだ連携していないプレイヤーに表示される招待リンクです。
 DiscordInviteLink: "https://discord.gg/changethisintheconfig.yml"
 
 # デバッグ情報
@@ -105,6 +105,7 @@ Experiment_MCDiscordReserializer_ToMinecraft: false
 Experiment_MCDiscordReserializer_InBroadcast: false
 
 # その他
+# Timezoneは通常、サーバーのタイムゾーンが使用されます。変更したい場合は、Asia/Tokyoなどの形式で入力してください。
 CancelConsoleCommandIfLoggingFailed: true
 ForcedLanguage: none
 PrintGuildsAndChannels: true
@@ -119,26 +120,26 @@ Timezone: default
 MinecraftMentionSound: true
 
 # プラグインのフック
-# これらのオプションを変更した場合は、サーバーを再起動する必要があります
+# これらのオプションを変更した場合は、サーバーを再起動する必要があります。
 #
-# DisabledPluginHooks: 無効化されたプラグインフック（通常はプラグインの名前だけ.
+# DisabledPluginHooks: 無効化されたプラグインフック（通常はプラグインの名前だけ。LunaChatを使用する場合、DisabledPluginHooks: ['LunaChat']にする必要があります。）
 # VentureChatBungee: VentureChatフックのBungeeCord機能を有効にします（メッセージはすべてのサーバーから受信され、少なくとも1人のプレイヤーがオンラインである必要があります）
-# EnablePresenceInformation: enabled presence information, which is required for some of our PlaceholderAPI placeholders. Keep in mind this requires the "Presence Intent" from the Discord developer portal
-# UseModernPaperChatEvent: only use this if you have a chat plugins that SPECIFICALLY utilizes Paper's "AsyncChatEvent"
+# EnablePresenceInformation: 有効なプレゼンス情報です。これは、一部の PlaceholderAPI プレースホルダーに必要です。これには、Discord 開発者ポータルからの「Presence Intent」が必要であることに注意してください。
+# UseModernPaperChatEvent: これは、PaperMCの "AsyncChatEvent" 機能を特に利用するチャットプラグインがある場合にのみ使用してください。
 DisabledPluginHooks: []
 VentureChatBungee: false
 EnablePresenceInformation: false
 UseModernPaperChatEvent: false
 
-# Game Information
-# Sets the "Playing: ______" indicator for the bot.
-# Can be a single, static value, or cycle through multiple different options
-# You can preface the status with "playing", "watching", or "listening to" to set the activity type
-# PlaceholderAPI placeholders are supported
+# ゲーム情報
+# BOTのアクティビティを"______をプレイ中"に設定します。
+# 一つだけ指定することも、複数指定して循環させることもできます。
+# ステータスの前に「playing」、「watching」、または「listening to」を付けて、アクティビティのタイプを設定できます。
+# PlaceholderAPIのプレースホルダーがサポートされています。
 #
-# DiscordGameStatus: Text to display. Can be a single value e.g. "Minecraft", or multiple values e.g. ["Minecraft", "yourip.changeme.com"]
-# DiscordOnlineStatus: Activity status to display. This must be one of the following: ONLINE, DND, IDLE or INVISIBLE
-# StatusUpdateRateInMinutes: How frequently to cycle the status
+# DiscordGameStatus: 表示されるテキストです。"Minecraft"のみを指定し、"Minecraft"のみを表示したり、["Minecraft", "yourip.changeme.com"] を指定し、"Minecraft"と、"yourip.changeme.com"を循環して表示することができます。
+# DiscordOnlineStatus: 表示するアクティビティのステータスです。これは、日本語ではなく以下の通りのいずれかを入力してください。: ONLINE, DND, IDLE, INVISIBLE
+# StatusUpdateRateInMinutes: アクティビティの循環をする頻度です。
 DiscordGameStatus: ["Minecraft"]
 DiscordOnlineStatus: ONLINE
 StatusUpdateRateInMinutes: 2
@@ -334,13 +335,13 @@ DiscordCannedResponses: {"!ip": "yourserveripchange.me", "!site": "http://yoursi
 #                         例: Notch
 #
 # MinecraftDiscordAccountLinkedRoleNameToAddUserTo: Discordユーザーがアカウントをリンクするときに追加するDiscordロール名またはID
-# MinecraftDiscordAccountLinkedAllowRelinkBySendingANewCode: 新しいコードをボットに送信して新しいコードとのリンクを解除して再リンクすることを許可する
+# MinecraftDiscordAccountLinkedAllowRelinkBySendingANewCode: 新しいコードをボットに送信して新しいコードとのリンクを解除して再リンクすることを許可するか、しないか
 # MinecraftDiscordAccountLinkedUsePM: PMを使用してアカウントをリンクする
 # MinecraftDiscordAccountLinkedMessageDeleteSeconds: テキストチャンネルでリンクをした際のメッセージを削除するまでの時間（秒）。0 を設定すると削除されません。
 #
 MinecraftDiscordAccountLinkedConsoleCommands: ["", "", ""]
 MinecraftDiscordAccountUnlinkedConsoleCommands: ["", "", ""]
-MinecraftDiscordAccountLinkedRoleNameToAddUserTo: "Linked"
+MinecraftDiscordAccountLinkedRoleNameToAddUserTo: "連携済み"
 MinecraftDiscordAccountLinkedAllowRelinkBySendingANewCode: false
 MinecraftDiscordAccountLinkedUsePM: true
 MinecraftDiscordAccountLinkedMessageDeleteSeconds: 0
