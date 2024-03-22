@@ -1,3 +1,4 @@
+# サーバーへの接続に連携を強制するか、しないか
 Require linked account to play:
   Enabled: false
 
@@ -7,41 +8,42 @@ Require linked account to play:
   # 最初から最後の順に、使用可能な値はLOWEST、LOW、NORMAL、HIGH、HIGHESTです。
   # BANプラグインがDiscordSRVが拒否する前にプレーヤーをキックするために、この設定をインストール後に変更する必要がある場合があります
   Listener priority: LOWEST
-  # リンク用モジュールがリッスンしてログインを拒否するイベント
+  # 連携用モジュールがリッスンしてログインを拒否するイベント
   # 一部のホワイトリストプラグインはAsyncPlayerPreLoginEvent (ベター) を使用し、一部はPlayerLoginEventを使用します
   Listener event: AsyncPlayerPreLoginEvent
   #
   # これらの意味がわからない場合は触れないでください
 
-  # ここで指定されたMinecraftのIGN (ID) は常に許可 (リンクされているか、サブスクライバーであるかを問わない)
+  # ここで指定されたMinecraftのIGN (ID) は常に許可 (連携されているか、サブスクライバーであるかを問わない)
   Bypass names: [Scarsz, Vankka]
-  # バニラのホワイトリストに登録されているプレイヤーがアカウントをリンクする必要がないか、サブロールを持つかどうか
+  # バニラのホワイトリストに登録されているプレイヤーがアカウントを連携する必要がないか、サブロールを持つかどうか
   Whitelisted players bypass check: true
-  # バニラのBANリストに登録されているプレイヤーが自分のアカウントをリンクできるようにするかどうか
+  # バニラのBANリストに登録されているプレイヤーが自分のアカウントを連携できるようにするかどうか
   Check banned players: false
-  # バニラのBANリストに登録されていないプレイヤーが、アカウントをリンクする必要があるか、サブロールを持つかどうか
+  # バニラのBANリストに登録されていないプレイヤーが、アカウントを連携する必要があるか、サブロールを持つかどうか
   Only check banned players: false
 
-  # プレイヤーがキックされる際、アカウントをリンクするよう表示されるメッセージ
+  # プレイヤーがキックされる際、アカウントを連携するよう表示されるメッセージ
   # ボットの名前のプレースホルダーとして{BOT}を使用します
   # ボットのDMに必要なコードのプレースホルダーとして{CODE}を使用します
-  # プレイヤーがDiscordサーバーに参加するために必要な招待リンクのプレースホルダーとして{INVITE}を使用します。config.ymlで設定されたDiscordInviteLinkを使用します
-  Not linked message: "&7プレイするには、&bDiscord&7アカウントをリンクする必要があります。\n\n&7アカウントをリンクするには、&b{CODE}&7のみを含むDiscordサーバーの&b{BOT}&7にDMを送信します。\n\n&7Discordの招待 » &b{INVITE}"
+  # プレイヤーがDiscordサーバーに参加するために必要な招待連携のプレースホルダーとして{INVITE}を使用します。config.ymlで設定されたDiscordInviteLinkを使用します
+  # チャンネルを使用して連携する場合、この文章を変更する必要があります。
+  Not linked message: "&7プレイするには、&bDiscord&7アカウントを連携する必要があります。\n\n&7アカウントを連携するには、&b{CODE}&7のみを、Discordサーバーの&b{BOT}&7にDMを送信してください。\n\n&7Discordの招待リンク » &b{INVITE}"
 
-  # 有効にした場合、プレイヤーはアカウントをリンクするだけでなく、ボットがいるDiscordサーバーのメンバーである必要があります。
+  # 有効にした場合、プレイヤーはアカウントを連携するだけでなく、ボットがいるDiscordサーバーのメンバーである必要があります。
   #
   # 受け入れ可能な形式：
-  #   true/false: リンクされたアカウントは、ボットも含まれている少なくとも1つのDiscordサーバーのメンバーである必要があります
+  #   true/false: 連携されたアカウントは、ボットも含まれている少なくとも1つのDiscordサーバーのメンバーである必要があります
   #     例: true
-  #   <server id>: リンクされたアカウントは、指定されたDiscordサーバーのメンバーである必要があります
+  #   <server id>: 連携されたアカウントは、指定されたDiscordサーバーのメンバーである必要があります
   #     例: 135634590575493120
-  #   [<server id>、<server id>、...]：リンクされたアカウントは、指定されたすべてのDiscordサーバーのメンバーである必要があります
+  #   [<server id>、<server id>、...]：連携されたアカウントは、指定されたすべてのDiscordサーバーのメンバーである必要があります
   #     例: [135634590575493120, 690411863766466590]
   #
   # このオプションの値は、サブスクライバーの役割が以下に適用されている場合は置き換えられます。
   Must be in Discord server: true
 
-  # オプションで、アカウントがリンクされるだけでなく、Twitchサブロールのような指定されたロールを持つことも要求します
+  # オプションで、アカウントが連携されるだけでなく、Twitchサブロールのような指定されたロールを持つことも要求します
   Subscriber role:
     Require subscriber role to join: false
     Subscriber roles: ["00000000000000000", "00000000000000000", "00000000000000000"]
@@ -49,8 +51,8 @@ Require linked account to play:
     Kick message: "&cプレイするには、Twitchに登録する必要があります。"
 
   Messages:
-    DiscordSRV still starting: "&cサーバーがまだDiscordに接続しているため、現在リンクステータスを確認できません。\n\nしばらくしてからもう一度お試しください。"
-    Not in server: "&c現在、Discordサーバーの一部ではありません。\n\n{INVITE}に参加してください！"
-    Failed to find subscriber role: "&cDiscordでサブスクライバーの役割を見つけることができませんでした。\n\nこの問題については、サーバー管理者にお問い合わせください。"
+    DiscordSRV still starting: "&cサーバーがまだDiscordに接続中のため、現在アカウント連携の情報を確認できません。\n\nしばらくしてからもう一度お試しください。"
+    Not in server: "&c現在、Discordサーバーに参加していません。\n\n{INVITE}に参加してください！"
+    Failed to find subscriber role: "&cDiscordでサブスクライバーのロールを見つけることができませんでした。\n\nこの問題については、サーバー管理者にお問い合わせください。"
     Failed for unknown reason: "&cアカウントの確認中にエラーが発生しました。\n\nこの問題については、サーバー管理者にお問い合わせください。"
-    Kicked for unlinking: "&cアカウントのリンクを解除したためサーバーから追い出されました。\n\nサーバーに再度参加して、アカウントを再度リンクしてください。"
+    Kicked for unlinking: "&cアカウントの連携を解除したためサーバーからキックされました。\n\nサーバーに再度参加して、アカウントを再度連携してください。"
